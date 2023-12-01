@@ -27,16 +27,22 @@ const contact = {
   number:number
 };
 
-if (contact) {
-  alert(`${contact.name} is already in contacts`);
-  return;
-}
+const saveContact = this.state.contacts.some(contact =>
+  contact.name === name)
+
+  if (saveContact) {
+    alert(`${contact.name} is already in contacts`)
+    return
+  }
 
 this.setState(prevState => ({
   contacts: [contact, ...prevState.contacts],
 }))
 
   }
+
+
+
 
 
 onChangeFilter = (event) => {
