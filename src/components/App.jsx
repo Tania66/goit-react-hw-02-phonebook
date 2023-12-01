@@ -28,20 +28,13 @@ const contact = {
 };
 
 const saveContact = this.state.contacts.some(contact =>
-  contact.name.toLowerCase() === name.toLowerCase())
+  contact.name.toLowerCase() === name.toLowerCase(), contact.number === number)
 
   if (saveContact) {
     alert(`${contact.name} is already in contacts`)
     return
   }
-
-  const saveNumber = this.state.contacts.some(contact =>
-    contact.number === number)
-
-    if (saveNumber) {
-      alert(`${contact.number} is already in contacts`)
-      return
-    }
+  
 
 this.setState(prevState => ({
   contacts: [contact, ...prevState.contacts],
