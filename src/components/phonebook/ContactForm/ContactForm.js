@@ -1,6 +1,6 @@
 import React from 'react';
 import shortid from 'shortid';
-import css from '../Style.module.css';
+import { Form, Label, Input, ButtonSubmit } from './Form.styled';
 
 class ContactForm extends React.Component {
   state = {
@@ -31,11 +31,10 @@ class ContactForm extends React.Component {
     const { name, number } = this.state;
 
     return (
-      <form className={css.form} onSubmit={this.handleSubmit}>
-        <label className={css.label} htmlFor={this.nameInputId}>
+      <Form onSubmit={this.handleSubmit}>
+        <Label htmlFor={this.nameInputId}>
           Name
-          <input
-            className={css.input}
+          <Input
             type="text"
             name="name"
             required
@@ -44,11 +43,10 @@ class ContactForm extends React.Component {
             id={this.nameInputId}
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           />
-        </label>
-        <label className={css.label} htmlFor={this.numberInputId}>
+        </Label>
+        <Label htmlFor={this.numberInputId}>
           Number
-          <input
-            className={css.input}
+          <Input
             type="tel"
             name="number"
             required
@@ -56,13 +54,11 @@ class ContactForm extends React.Component {
             onChange={this.handleChange}
             id={this.numberInputId}
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-          ></input>
-        </label>
+          ></Input>
+        </Label>
 
-        <button className={css.btnSubmit} type="submit">
-          Add contact
-        </button>
-      </form>
+        <ButtonSubmit type="submit">Add contact</ButtonSubmit>
+      </Form>
     );
   }
 }

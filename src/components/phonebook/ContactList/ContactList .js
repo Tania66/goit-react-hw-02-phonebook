@@ -1,22 +1,19 @@
 import React from 'react';
-import css from '../Style.module.css';
+import { List, Item, ButtonDelete } from './List.styled';
 
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul className={css.list}>
+  <List>
     {contacts.map(contact => (
-      <li className={css.item} key={contact.id}>
+      <Item key={contact.id}>
         <p>
           {contact.name}: {contact.number}
         </p>
-        <button
-          className={css.btnDelete}
-          onClick={() => onDeleteContact(contact.id)}
-        >
+        <ButtonDelete onClick={() => onDeleteContact(contact.id)}>
           Delete
-        </button>
-      </li>
+        </ButtonDelete>
+      </Item>
     ))}
-  </ul>
+  </List>
 );
 
 export default ContactList;

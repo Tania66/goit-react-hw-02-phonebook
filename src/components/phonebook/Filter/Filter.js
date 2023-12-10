@@ -1,15 +1,10 @@
 import React from 'react';
-import css from '../Style.module.css';
+import { LabelFilter, InputFilter } from './Filter.styled';
 
 const Filter = ({ value, onChange }) => (
-  <label className={css.filter}>
+  <LabelFilter>
     Find contacts by name:
-    <input
-      className={css.inputFilter}
-      type="text"
-      value={value}
-      onChange={onChange}
-    ></input>
-  </label>
+    <InputFilter type="text" value={value} onChange={onChange}></InputFilter>
+  </LabelFilter>
 );
 export default Filter;

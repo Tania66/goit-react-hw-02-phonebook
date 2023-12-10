@@ -1,10 +1,9 @@
 import React from 'react';
 import shortid from 'shortid';
-import css from './phonebook/Style.module.css'
 import ContactForm from './phonebook/ContactForm/ContactForm';
 import Filter from './phonebook/Filter/Filter';
 import ContactList from './phonebook/ContactList/ContactList ';
-
+import {Container, MainTitle, Title} from './phonebook/Global.styled'
 
 
 class App extends React.Component {
@@ -50,9 +49,6 @@ this.setState(prevState => ({
   }
 
 
-
-
-
 onChangeFilter = (event) => {
 this.setState({filter:event.currentTarget.value})
 }
@@ -80,14 +76,14 @@ const filterContacts = this.state.contacts.filter(contact =>
 
 
     return (
-      <div className={css.inner}>
-        <h1 className={css.title}>Phonebook</h1>
+      <Container>
+        <MainTitle>Phonebook</MainTitle>
         <ContactForm  onSubmit={this.addContact}/>
 
-        <h2 className={css.title}>Contacts</h2>
+        <Title>Contacts</Title>
         <Filter value={this.state.filter} onChange={this.onChangeFilter}/>
-        <ContactList className={css.list} contacts={filterContacts}  onDeleteContact={this.deleteContact}/>
-      </div>
+        <ContactList contacts={filterContacts}  onDeleteContact={this.deleteContact}/>
+      </Container>
     );
   }
 }
